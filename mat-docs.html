@@ -96,25 +96,25 @@ A custom element used to display Material Design documentation.
 
             /* HEADER */
 
-            :host header:after {
+            :host .header:after {
                 clear: both;
                 content: "";
                 display: block;
                 height: 0;
             }
 
-            :host header .name {
+            :host .header .name {
                 @apply(--mat-font-display2);
             }
 
-            :host header .type {
+            :host .header .type {
                 @apply(--mat-font-title);
                 float: left;
                 opacity: 0.30;
                 text-transform: capitalize;
             }
 
-            :host header .button {
+            :host .header .button {
                 float: right;
                 margin: -8px -8px -8px 8px;
             }
@@ -216,7 +216,7 @@ A custom element used to display Material Design documentation.
                 display: none !important;
             }
 
-            :host .panel.features:not([private]):not([public]) .toolbar {
+            :host .panel.features:not([private]):not([public]):not([type="constructs"]) .toolbar {
                 margin-bottom: -32px;
             }
 
@@ -423,7 +423,7 @@ A custom element used to display Material Design documentation.
                  *
                  * @attribute features
                  * @type Array
-                 * @default ["constructs", "attributes", "properties", "methods", "events"]
+                 * @default ["constructs", "events", "attributes", "properties", "methods"]
                  * @notifies
                  * @readonly
                  */
@@ -431,7 +431,7 @@ A custom element used to display Material Design documentation.
                     notify: true,
                     readOnly: true,
                     type: Array,
-                    value: function () { return ['constructs', 'attributes', 'properties', 'methods', 'events']; }
+                    value: function () { return ['constructs', 'events', 'attributes', 'properties', 'methods']; }
                 },
 
                 /**
