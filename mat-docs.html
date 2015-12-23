@@ -130,7 +130,7 @@ A custom element used to display Material Design documentation.
             }
 
             :host .panel .toolbar .button {
-                margin-right: 2px;
+                margin-right: 6px;
             }
 
             :host .panel .extends,
@@ -201,11 +201,11 @@ A custom element used to display Material Design documentation.
             }
 
             :host .panel .param-name[optional]:after {
-                content: ']';
+                content: "]";
             }
 
             :host .panel .param-name[optional]:before {
-                content: '[';
+                content: "[";
             }
 
             :host .panel.features .private.button:not([private]) {
@@ -246,7 +246,7 @@ A custom element used to display Material Design documentation.
         <!-- DESCRIPTION -->
         <template is="dom-if" if="[[data]]" restamp>
             <mat-panel class="description" padding>
-                <mat-toolbar background="[[toolbarBackground]]" justified>
+                <mat-toolbar background="[[toolbarBackground]]" justified="between">
                     <span class="label">Description</span>
                 </mat-toolbar>
                 <div class="extends" hidden$="[[!data.extends]]">
@@ -271,7 +271,7 @@ A custom element used to display Material Design documentation.
         <!-- ARGUMENTS -->
         <template is="dom-if" if="[[data.params.length]]" restamp>
             <mat-panel class="arguments" padding>
-                <mat-toolbar background="[[toolbarBackground]]" justified>
+                <mat-toolbar background="[[toolbarBackground]]" justified="between">
                     <span class="label">Arguments</span>
                 </mat-toolbar>
                 <ol class="params">
@@ -300,7 +300,7 @@ A custom element used to display Material Design documentation.
         <!-- RETURNS -->
         <template is="dom-if" if="[[data.returns]]" restamp>
             <mat-panel class="returns" padding>
-                <mat-toolbar background="[[toolbarBackground]]" justified>
+                <mat-toolbar background="[[toolbarBackground]]" justified="between">
                     <span class="label">Returns</span>
                 </mat-toolbar>
                 <ul class="params">
@@ -316,7 +316,7 @@ A custom element used to display Material Design documentation.
         <template is="dom-repeat" items="[[features]]" as="feature">
             <template is="dom-if" if="[[_hasFeature(data, feature)]]" restamp>
                 <mat-panel class="features" type$="[[feature]]" public$="[[_hasPublic(data, feature)]]" padding>
-                    <mat-toolbar background="[[toolbarBackground]]" justified>
+                    <mat-toolbar background="[[toolbarBackground]]" justified="between">
                         <span class="label">[[_computeFeatureTitle(feature)]]</span>
                         <mat-button class="private" private$="[[_hasPrivate(data, feature)]]" label="Toggle private" on-xp-activate="_handlePrivate" toggleable></mat-button>
                     </mat-toolbar>
